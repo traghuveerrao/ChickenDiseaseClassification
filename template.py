@@ -3,7 +3,7 @@ from pathlib import Path
 import logging
 
 # log the basic info with a message
-logging.basicConfig(level=logging.INFO, format='[%(astime)s]:%(message)s:')
+logging.basicConfig(level=logging.INFO)
 
 project_name = 'cnnClassifier'
 
@@ -22,7 +22,8 @@ list_of_files = [
     "params.yaml",
     "requirements.txt",
     "setup.py",
-    "research/trials.ipynb"
+    "research/trials.ipynb",
+    "templates/index.html"
 ]
 
 for filePath in list_of_files:
@@ -33,13 +34,13 @@ for filePath in list_of_files:
         os.makedirs(filedir, exist_ok=True)
         logging.info(f"Creating directory; {filedir} for the file {filename}")
 
-    if(not os.path.exists(filename)) or (os.path.getSize(filename)==0):
+    if(not os.path.exists(filename)) or (os.path.getsize(filename)==0):
         with open(filePath, 'w') as f:
             pass
             logging.info(f"Creating empty file: {filePath}")
     
     else:
-        logging.inf(f"{filename} already exists")
+        logging.info(f"{filename} already exists")
 
 
 
